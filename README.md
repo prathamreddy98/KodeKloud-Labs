@@ -1,2 +1,2 @@
 # KodeKloud-Labs
-KodeKloud labs
+Solutions to some of the lab sessions of the courses
