@@ -57,6 +57,44 @@ ANS: employees:
   	- name: sarah
       	 gender: female
       	 age: 28
+## PODS with YAML Lab:
+
+How many pods exist on the system?
+ANS: Kubectl get pods
+
+Create a new pod with the nginx image.
+ANS: kubectl run nginx --image=nginx
+
+What is the image used to create the new pods?You must look at one of the new pods in detail to figure this out.
+ANS: kubectl describe pod newpods-r5hdc
+
+Which nodes are these pods placed on?You must look at all the pods in detail to figure this out.
+ANS: kubectl describe pod newpods-r5hdc and look for “Node”
+
+How many containers are part of the pod webapp?
+ANS:  kuebctl describe pod webapp
+
+Why do you think the container agentx in pod webapp is in error?
+ANS:  A Docker image with this name doesn't exist on Docker Hub
+
+What does the READY column in the output of the kubectl get pods command indicate?
+ANS: Running container in Pods/ Total container
+ 
+Create a new pod with the name redis and the image redis123.Use a pod-definition YAML file. And yes the image name is wrong!
+ANS:  first step is to run file with dry run of yaml to create a manifest file. kubectl run redis --image=redis123 --dry-run=client -o yaml > redis-definition.yaml
+
+To create a resource from the manifest file:
+kubectl create -f redis-definition.yaml
+
+
+Now change the image on this pod to redis.
+First delete the running pod by using kubectl delete pod [pod name, here redis]
+Then in the above command change the image name and re run the commands
+
+
+
+
+
 
 
 
