@@ -91,7 +91,38 @@ Now change the image on this pod to redis.
 First delete the running pod by using kubectl delete pod [pod name, here redis]
 Then in the above command change the image name and re run the commands
 
+## REPLICA SET LABS
 
+How many ReplicaSets exist on the system?
+ANS: kubectl get replicaset
+
+What is the image used to create the pods in the new-replica-set?
+ANS: kubectl describe replicaset
+
+How many PODs are READY in the new-replica-set?
+ANS: kubectl get replicaset and look for “READY” column
+
+Why do you think the PODs are not ready?
+ANS: kubectl describe pods
+
+Delete any one of the 4 PODs.
+ANS: kubectl delete pod new-replica-set-s7c28
+
+Create a ReplicaSet using the replicaset-definition-1.yaml file located at /root/.
+There is an issue with the file, so try to fix it.
+ANS: change the API version to apps/v1 . We can debug it using kubect explain replicaset
+
+Fix the issue in the replicaset-definition-2.yaml file and create a ReplicaSet using it.
+ANS: Change the value of tier in matchLables section to nginx to match it with label name under the template section
+
+Delete the two newly created ReplicaSets - replicaset-1 and replicaset-2
+ANS: kubectl delete replicaset replicaset-2
+
+Fix the original replica set new-replica-set to use the correct busybox image.
+ANS: kubectl edit replicaset new-replica-set
+
+Scale the ReplicaSet to 5 PODs.
+ANS: kubectl scale replicaset new-replica-set  --replicas=5
 
 
 
