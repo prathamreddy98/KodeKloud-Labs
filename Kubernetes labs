@@ -126,6 +126,44 @@ ANS: kubectl scale replicaset new-replica-set  --replicas=5
 
 
 
+Deployment labs
+
+How many ReplicaSets exist on the system?
+ANS:  kubectl get replicaset
+
+How many Deployments exist on the system?
+ANS: kubectl get deployment
+
+How many Deployments exist on the system now?
+ANS:   kubectl get deployment and count number of deployments under the “NAME” section
+
+Out of all the existing PODs, how many are ready?
+ANS: kubectl get deployment and count number of ready pods
+
+What is the image used to create the pods in the new deployment?
+ANS: kubectl describe deployment and search the Pod Template section
+
+Why do you think the deployment is not ready?
+ANS: kubectl describe pods
+
+Updates and rollback labs:
+
+What is the current color of the web application?
+ANS: Blue
+
+Inspect the deployment and identify the number of PODs deployed by it
+ANS: kubectl get pods or kubectl describe deployment and look for desired replicas
+
+What container image is used to deploy the applications?
+ANS:  kubectl describe deployment
+
+Inspect the deployment and identify the current strategy
+ANS: kubectl describe deployment and look for “strategy” section 
+
+
+Let us try that. Upgrade the application by setting the image on the deployment to kodekloud/webapp-color:v2
+ANS:  kubectl edit deployment. Opens the file in vi editor
+
 
 
 
